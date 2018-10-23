@@ -26,7 +26,6 @@ public class SitemaGIT {
 				
 			}else if(opcao ==2) {
 				master.mostrarRepositorios(master);
-				
 				break;
 				
 			}else if(opcao ==3) {
@@ -41,6 +40,7 @@ public class SitemaGIT {
 	}
 	
 	public void menuDiretorio() {
+		
 		JOptionPane.showMessageDialog(null,"1-> Adicionar Arquivo\n2-> Listar Arquivos\n3-> Editar ou Remover\n4-> Git add\n5-> Reset\n6-> Commit\n7-> Status\n"
 				+ "8-> Log\n0-> Sair ");
 	}
