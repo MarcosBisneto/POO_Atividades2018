@@ -3,9 +3,9 @@ package Modelo;
 import java.util.ArrayList;
 
 public class Repositorio {
-	String nome;
-	String descricao;
-	int contador;
+	public String nome;
+	public String descricao;
+	public int contador;
 	
 	public ArrayList<Arquivos> untracked = new ArrayList();
 	public ArrayList<Arquivos> tracked = new ArrayList();

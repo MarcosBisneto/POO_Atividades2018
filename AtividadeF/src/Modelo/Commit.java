@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Commit {
-	
 	public String comentatio;
 	public Date hora = new Date();
 	public int contadorArquivos;
@@ -17,8 +16,9 @@ public class Commit {
 		this.commits = commits;
 	}
 	
-	public void commitArquivo(Arquivos arquivo) {
-		arquivo.status = "Commited";
+	public void commitArquivo(Arquivos ar) {
+		ar.commit();
+		
 	}
 	
 	
