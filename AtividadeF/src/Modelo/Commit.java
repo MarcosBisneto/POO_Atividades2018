@@ -16,9 +16,8 @@ public class Commit {
 		this.commits = commits;
 	}
 	
-	public void commitArquivo(Arquivos ar) {
-		ar.commit();
-		
+	public void commitArquivo(Arquivos arquivo) {
+		arquivo.commit();
 	}
 	
 	

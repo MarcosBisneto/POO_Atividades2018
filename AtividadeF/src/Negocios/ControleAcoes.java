@@ -3,23 +3,19 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 import Modelo.*;
 import Modelo.Repositorio;
 
 public class ControleAcoes {
 	
-	
 	public ArrayList<Repositorio> repositorios = new ArrayList();
-	public ArrayList<String> memoria = new ArrayList();
-	
-	public Repositorio pastaMaster;
 	
 	public Repositorio lançarRepositorio(String nome) {
 		for(int i = 0; i < repositorios.size(); i++)
 			if(repositorios.get(i).nome.equals(nome))
 				return repositorios.get(i);
-		
 			return null;
 	}
 	
@@ -49,5 +45,16 @@ public class ControleAcoes {
 		}
 	}
 	
+	public String horaData() {
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		Date date = new Date();
+		return dateFormat.format(date);
+	}
+	
+	public String menuSistema() {
+		return "-- SISTEMA MENU -- \n1-> Criar Repositório\n2-> Acessar Repositório"; 
+	}
+	
+
 
 }
