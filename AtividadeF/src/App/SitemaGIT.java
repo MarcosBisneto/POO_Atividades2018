@@ -22,12 +22,11 @@ public class SitemaGIT {
 				Repositorio repositorio1 = new Repositorio(nome,descricao);
 				master.repositorios.add(repositorio1);
 				JOptionPane.showMessageDialog(null, "O Repositorio " + nome + " foi criado com Sucesso!");
-				int op = Integer.valueOf(JOptionPane.showInputDialog(null, master.menuSistema()));
+				op = Integer.valueOf(JOptionPane.showInputDialog(null, master.menuSistema()));
 				
 			}else if(op ==2) {
-				//mostrarRepositorios(repositorio1);
-				
-				
+				master.mostrarRepositorios(master);
+				break;
 			}
 			
 		}
