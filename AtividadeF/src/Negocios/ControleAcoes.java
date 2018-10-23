@@ -12,7 +12,7 @@ public class ControleAcoes {
 	
 	public ArrayList<Repositorio> repositorios = new ArrayList();
 	
-	public Repositorio lançarRepositorio(String nome) {
+	public Repositorio AbrirRepositorio(String nome) {
 		for(int i = 0; i < repositorios.size(); i++)
 			if(repositorios.get(i).nome.equals(nome))
 				return repositorios.get(i);
@@ -38,7 +38,6 @@ public class ControleAcoes {
 			System.out.println("Alterações realizadas no arquivo" + "Versão" + i + arquivo.modificacoes.get(i));
 		}
 	}
-	//Atenção Para Cá //ajeitar
 	public void mostrarAquivosCommited(Repositorio repositorio) {
 		for(int i = 0;i<repositorio.untracked.size();i++) {
 			this.mudança(repositorio.untracked.get(i));
@@ -54,7 +53,5 @@ public class ControleAcoes {
 	public String menuSistema() {
 		return "-- SISTEMA MENU -- \n1-> Criar Repositório\n2-> Acessar Repositório"; 
 	}
-	
-
 
 }

@@ -30,16 +30,15 @@ public class Repositorio {
 			}
 			else if(!untracked.contains(arquivo))
 				return "Arquivo não existente";
-			
 		}
 		return "Fim";
 	}
-	
 	//TRACKED
 	public String addStageZona(Arquivos arquivo) {
 		tracked.add(arquivo);
 		return "Arquivo adicionado";
 	}
+	
 	public String removerStageZona(Arquivos arquivo) {
 		for(int i =0; i < tracked.size(); i++) {
 			if(tracked.contains(arquivo)) {
@@ -49,6 +48,12 @@ public class Repositorio {
 				return "Arquivo não existente";
 		}
 		return "Fim";
+	}
+	public void push(){
+		
+	}
+	public void pull() {
+		
 	}
 	
 }
