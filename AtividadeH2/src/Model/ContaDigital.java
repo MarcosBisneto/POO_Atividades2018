@@ -12,7 +12,7 @@ public class ContaDigital {
 		 this.contaC = new ContaCorrente(titular3,senha3,numeroConta,limiteD);
 	}
 	
-	public void depositar(double valorDepositar) {
+	public void depositarDigital(double valorDepositar) {
 		contaC.depositar(valorDepositar);
 	}
 	

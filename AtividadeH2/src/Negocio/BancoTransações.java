@@ -10,9 +10,9 @@ public class BancoTransações {
 	public ContaCorrente contasCCorrente[]= new ContaCorrente[20];
 	public ContaDigital contasDigital[] = new ContaDigital[20];
 	
-	int CP; 
-	int CD;
-	int CC;
+	public int CP; 
+	public int CD;
+	public int CC;
 	
 	// criar contas 
 	public void nova_contaPoupança(String titular,int senha,int numeroConta){
@@ -29,9 +29,9 @@ public class BancoTransações {
 	
 	//transações
 	
-	public void depositarPoupança(double valor,ContaPoupança conta) {
+	public void depositarPoupança(double valor,ContaDigital contasDigital2) {
 		for(int i = 0;i <CP;i++) {
-			if(this.contasPoupanca[i]== conta)
+			if(this.contasPoupanca[i]== contasDigital2)
 				this.contasPoupanca[i].depositar(valor);
 		}
 	}
@@ -41,6 +41,12 @@ public class BancoTransações {
 			if(this.contasCCorrente[i]== conta)
 				this.contasCCorrente[i].depositar(valor);
 		}
+	}
+	
+	public String menuBanco() {
+		return "SEJA BEM VINDO! ITAU BANK\n1-> Criar Conta\n2-> Deposito Poupança\n3-> Deposito Corrente\n"
+				+ "\n0-> Sair"
+				+ "\nEscolha sua opção: ";
 	}
 	
 	
