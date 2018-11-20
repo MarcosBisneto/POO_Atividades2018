@@ -10,6 +10,8 @@ import model.Comentario;
 import model.Etiquetas;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class Aplicação {
 	    private static Scanner input = new Scanner(System.in);
 	    private static boolean statusLogar = false;
@@ -21,12 +23,12 @@ public class Aplicação {
 	        int opcao=0;
 
 	        if (!statusLogar){
-	            menu = "SEJA BEM VINDO - TRELLAR \n"
+	            menu = JOptionPane.showInputDialog("SEJA BEM VINDO - TRELLAR \n"
 	            	 + "1 - Login\n"
 	                 + "2 - Cadastrar Usuario\n"
 	                 + "00 - Finalizar\n"
 	                 + "10 - Logoff\n"
-	                 + ">>> ";
+	                 + ">>> ");
 		        
 		        System.out.print(menu);
 		        opcao = input.nextInt();
@@ -37,26 +39,21 @@ public class Aplicação {
 	    private static int menu2(){
 	        String menu2;
 	        int opcao=0;
-
-	        if (!statusLogar){
 	            menu2 = "OPÇÕES PARA QUADROS \n"
-	            	 + "1 - Cadastrar Nova Lista/Tarefa\n"
+	            	 + "1 - Cadastrar Quadro\n"
 	                 + "2 - Meus Quadros - Listar Quadros\n"
 	                 + "3 - Selecionar um Quadro\n"
 	                 + "00 - Finalizar\n"
 	                 + ">>> ";
 		        
 		        System.out.print(menu2);
-		        opcao = input.nextInt();
+		        return opcao = input.nextInt();
 	        }
-	        return opcao;
-	    }
 	    
 	    private static int menu3(){
 	        String menu3;
 	        int opcao=0;
-
-	        if (!statusLogar){
+	        
 	            menu3 = "OPÇÕES PARA LISTA/TAREFA \n"
 		                 + "1 -  Adicionar uma Lista/Tarefa \n"
 		                 + "2 -  Mostrar Minhas Listas/Tarefas\n"      
@@ -65,16 +62,13 @@ public class Aplicação {
 		                 + ">>> ";
 		                  
 		        System.out.print(menu3);
-		        opcao = input.nextInt();
+		        return opcao = input.nextInt();
 	        }
-	        return opcao;
-	    }
 	    
 	    private static int menu4(){
 	        String menu4;
 	        int opcao=0;
-
-	        if (!statusLogar){
+	        
 	            menu4 = "OPÇÕES PARA CARDS \n"
 		                 + "1 -  Adicionar Card\n"
 		                 + "2 -  Listar Cards\n"      
@@ -83,16 +77,13 @@ public class Aplicação {
 		                 + ">>> ";
 		                  
 		        System.out.print(menu4);
-		        opcao = input.nextInt();
+		        return opcao = input.nextInt();
 	        }
-	        return opcao;
-	    }
 	    
 	    private static int menu5(){
 	        String menu5;
 	        int opcao=0;
-
-	        if (!statusLogar){
+	        
 	            menu5 = "OPÇÕES PARA UM CARD \n"
 		                 + "10 - Adicionar descrição ao card\n"
 		                 + "11 - Adicionar data de entrega ao cartao\n"
@@ -103,10 +94,8 @@ public class Aplicação {
 		                 + ">>> ";
 		                  
 		        System.out.print(menu5);
-		        opcao = input.nextInt();
+		        return opcao = input.nextInt();
 	        }
-	        return opcao;
-	    }
 	    
 	    private static void criarQuadro(){
 	        input = new Scanner(System.in);
@@ -133,7 +122,8 @@ public class Aplicação {
 	        System.out.print("Opcao: ");
 	        int opcao = input.nextInt();
 	        if (processo.selecionarQuadro(opcao)){
-	            System.out.println("Alteração feita!");
+	            System.out.println("******");
+	            menu3();
 	        } else {
 	            System.out.println("Não realizado, tente de novo!");
 	        }
@@ -166,6 +156,7 @@ public class Aplicação {
 	        int opcao = input.nextInt();
 	        if (processo.selecionarTarefa(opcao)){
 	            System.out.println("Alteração feita!");
+	            menu4();
 	        } else {
 	            System.out.println("Não realizado, tente de novo!");
 	        }
@@ -225,6 +216,7 @@ public class Aplicação {
 	        int opcao = input.nextInt();
 	        if (processo.selecionarCartao(opcao)){
 	            System.out.println("Alteracao aplicada com sucesso!");
+	            menu5();
 	        } else {
 	            System.out.println("Problemas na selecao, tente novamente!");
 	        }
@@ -317,6 +309,7 @@ public class Aplicação {
 	        if (processo.login(idLogin, senha)){
 	            System.out.println("Logando! Seja Bem Vindo!");
 	            statusLogar = true;
+	            menu2();
 	        } else {
 	            System.out.println("Usuario não encontrado!");
 	        }
@@ -335,17 +328,48 @@ public class Aplicação {
 	        
 	        while (opcao != 0){
 	            opcao = menu1();
-	            
 	            if (statusLogar){
-	                switch (opcao) {
-	                    case 1:
-	                        criarQuadro();
-	                        break;
-	                    case 2:
-	                        listarQuadros();
-	                        break;
-	                    case 3:
-	                        selecionarQuadro();
+	            	opcao = menu2();          	
+	            	
+	            	while(opcao !=0) {
+	            		opcao = menu2();
+		                switch (opcao) {
+		                    case 1:
+		                        criarQuadro();
+		                        break;
+		                    case 2:
+		                        listarQuadros();
+		                        break;
+		                    case 3:
+		                        selecionarQuadro();
+		                        opcao = menu3();    
+	                        //troca de menu
+	                        switch (opcao) {
+	                        case 1:
+	                        	criarQuadro();
+	                        	break;
+	                        case 2:
+	                        	listarQuadros();
+	                        	break;
+	                        case 3:
+	                        	selecionarQuadro();
+	                        	opcao = menu4();
+	                        	
+	                        	//troca de menu
+	                        	switch(opcao) {
+		                        case 1:
+		                        	criarQuadro();
+		                        	break;
+		                        case 2:
+		                        	listarQuadros();
+		                        	break;
+		                        case 3:
+		                        	selecionarQuadro();
+		                        	opcao = menu4();
+	                        	}
+	                        	break;
+	                        	
+	                        }
 	                        break;
 	                        
 	                    case 15:
@@ -358,6 +382,7 @@ public class Aplicação {
 	                        System.out.println("Opcao invalida!");
 	                        break;
 	                }
+	            	}
 	            } else {
 	                switch (opcao) {
 	                    case 1:

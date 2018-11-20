@@ -51,5 +51,10 @@ public class Quadro {
 		Card c = tarefas.get(tarefaSelecionada).getCartaoPorIndiceEDeletar(cartao);
 		tarefas.get(tarefa).cadastrarCartao(c);
 	}
+	
+// teste_futuro.	
+//	public void alterarPrivacidade() {
+//		this.privado = !this.privado;
+//	}
 
 }
