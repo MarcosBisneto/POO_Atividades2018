@@ -15,52 +15,7 @@ public class Aplicação {
 	    private static boolean statusLogar = false;
 	    private static Processos processo = new Processos();
 	    
-	    public static void main(String[] args) {
-	        int opcao = 1;
-	        
-	        while (opcao != 0){
-	            opcao = menu1();
-	            
-	            if (statusLogar){
-	                switch (opcao) {
-	                    case 1:
-	                        criarQuadro();
-	                        break;
-	                    case 2:
-	                        listarQuadros();
-	                        break;
-	                    case 3:
-	                        selecionarQuadro();
-	                        break;
-	                        
-	                    case 15:
-	                        logOut();
-	                        break;
-	                    case 00:
-	                        System.out.println("Sistema finalizado!");
-	                        break;
-	                    default:
-	                        System.out.println("Opcao invalida!");
-	                        break;
-	                }
-	            } else {
-	                switch (opcao) {
-	                    case 1:
-	                        login();
-	                        break;
-	                    case 2:
-	                        cadastarUsuario();
-	                        break;
-	                    case 00:
-	                        System.out.println("Sistema finalizado!");
-	                    default:
-	                        System.out.println("Opcao invalida!");
-	                        break;
-	                }
-	            }
-	        }
-	    }
-	    
+
 	    private static int menu1(){
 	        String menu;
 	        int opcao=0;
@@ -373,4 +328,51 @@ public class Aplicação {
 	        processo.selecionarUsuario(0);
 	    }	
 
+	    
+	    
+	    public static void main(String[] args) {
+	        int opcao = 1;
+	        
+	        while (opcao != 0){
+	            opcao = menu1();
+	            
+	            if (statusLogar){
+	                switch (opcao) {
+	                    case 1:
+	                        criarQuadro();
+	                        break;
+	                    case 2:
+	                        listarQuadros();
+	                        break;
+	                    case 3:
+	                        selecionarQuadro();
+	                        break;
+	                        
+	                    case 15:
+	                        logOut();
+	                        break;
+	                    case 00:
+	                        System.out.println("Sistema finalizado!");
+	                        break;
+	                    default:
+	                        System.out.println("Opcao invalida!");
+	                        break;
+	                }
+	            } else {
+	                switch (opcao) {
+	                    case 1:
+	                        login();
+	                        break;
+	                    case 2:
+	                        cadastarUsuario();
+	                        break;
+	                    case 00:
+	                        System.out.println("Sistema finalizado!");
+	                    default:
+	                        System.out.println("Opcao invalida!");
+	                        break;
+	                }
+	            }
+	        }
+	    }
 	}
