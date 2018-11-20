@@ -32,39 +32,7 @@ public class Aplicação {
 	                    case 3:
 	                        selecionarQuadro();
 	                        break;
-	                    case 4:
-	                        criarLista();
-	                        break;
-	                    case 5:
-	                        mostrarListas();
-	                        break;
-	                    case 6:
-	                        selecionarLista();
-	                        break;
-	                    case 7:
-	                        criarCartao();
-	                        break;
-	                    case 8:
-	                        listagemCards();
-	                        break;
-	                    case 9:
-	                        selecionarCard();
-	                        break;
-	                    case 10:
-	                        adicionarDescricaoCard();
-	                        break;
-	                    case 11:
-	                        adicionarPrazo();
-	                        break;
-	                    case 12:
-	                        adicionarComentarioCard();
-	                        break;
-	                    case 13:
-	                        adicionarEtiquetaCard();
-	                        break;
-	                    case 14:
-	                        moverCard();
-	                        break;
+	                        
 	                    case 15:
 	                        logOut();
 	                        break;
