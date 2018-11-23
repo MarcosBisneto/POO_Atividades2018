@@ -48,13 +48,8 @@ public class Quadro {
 
 
 	public void moverCartao(int tarefa, int cartao){
-		Card c = tarefas.get(tarefaSelecionada).getCartaoPorIndiceEDeletar(cartao);
-		tarefas.get(tarefa).cadastrarCartao(c);
+		Card card = tarefas.get(tarefaSelecionada).getCartaoPorIndiceEDeletar(cartao);
+		tarefas.get(tarefa).cadastrarCartao(card);
 	}
-	
-// teste_futuro.	
-//	public void alterarPrivacidade() {
-//		this.privado = !this.privado;
-//	}
 
 }

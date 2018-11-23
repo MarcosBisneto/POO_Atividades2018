@@ -15,7 +15,7 @@ public class Comentario {
         this.dataHora = dataHoraAtual();
     }
     
-    
+
     private String dataHoraAtual(){
         Date dataAtual = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");

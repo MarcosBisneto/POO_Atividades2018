@@ -3,14 +3,12 @@ package model;
 import java.util.ArrayList;
 
 public class User {
-    /* Variaveis */
     private String nome;
     private String login;
     private String senha;
     private ArrayList<Quadro> quadros = new ArrayList<>();
     private int quadroSelecionado = 0;
     
-    /* Contrutor */
     public User(String nome, String login, String senha){
         this.nome = nome;
         this.login = login;
