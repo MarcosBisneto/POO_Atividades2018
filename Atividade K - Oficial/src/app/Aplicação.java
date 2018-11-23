@@ -242,7 +242,7 @@ public class Aplicação {
         int opcao;
 
         if (!logadoStatus){
-        	// seria o *PRIMEIRO MENU*
+        	// seria o *PRIMEIRO MENU**
             menu = "SEJA BEM VINDO - TRELLAR \n"
             	 + "1 - Login\n" //se clicar nessa opçao vem o formaulario de LOGIN.
                  + "2 - Cadastrar Usuario\n" //se clicar nessa opçao vem o formaulario de cadastro.
