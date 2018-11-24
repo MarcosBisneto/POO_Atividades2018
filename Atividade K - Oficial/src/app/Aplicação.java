@@ -27,8 +27,9 @@ public class Aplicação {
 				String usuario = JOptionPane.showInputDialog(null,"Usuário: ");
 				String senha=JOptionPane.showInputDialog(null,"Senha: ");
 			    if (processo.login(usuario, senha)){
-			    	JOptionPane.showMessageDialog(null,"Bem-Vindo!");
+			    	JOptionPane.showMessageDialog(null,"Seja Bem-Vindo!");
 			    	int option2 = Integer.parseInt((JOptionPane.showInputDialog(processo.menu2())));
+			    	//
 			    	while(option2 != 0) {
 						switch(option2) {
 						case 1:
@@ -46,15 +47,20 @@ public class Aplicação {
 							 String opcao =JOptionPane.showInputDialog("Título do quadro que deseja: ");
 						       processo.selecionarQuadro(opcao);
 						       JOptionPane.showMessageDialog(null,"Entrou...!");
+						case 4:
+							option2 = Integer.parseInt((JOptionPane.showInputDialog(processo.menu2())));
 						       
 						       int option3 = Integer.parseInt(JOptionPane.showInputDialog(processo.menu3()));
+						       ///
 						       while(option3 != 0) {
 									switch(option3) {
+									case 4:
+										option3 = Integer.parseInt((JOptionPane.showInputDialog(processo.menu2())));
 									case 1:
-										String tarefa=JOptionPane.showInputDialog("Tarefa: ");
+										String tarefa=JOptionPane.showInputDialog("Titulo da Tarefa: ");
 										processo.cadastrarTarefa(tarefa);
 										option3= Integer.parseInt(JOptionPane.showInputDialog(processo.menu3()));
-									case 2:
+									case 2: //
 										JOptionPane.showMessageDialog(null,processo.listarTarefas());
 										
 										option3= Integer.parseInt(JOptionPane.showInputDialog(processo.menu3()));
@@ -65,7 +71,8 @@ public class Aplicação {
 										if(processo.selecionarTarefa(opc-1)) {
 											JOptionPane.showMessageDialog(null,"Entrou...!");
 											  int option4 = Integer.parseInt(JOptionPane.showInputDialog(processo.menu4()));
-										       while(option4 != 0) {
+										      /// 
+											  while(option4 != 0) {
 													switch(option4) {
 													//add um card
 													case 1:
@@ -100,11 +107,6 @@ public class Aplicação {
 																	int op1 =  Integer.parseInt(JOptionPane.showInputDialog(null,"Opção:"));
 																	processo.selecionarTarefa(op1);
 																}
-														 
-														
-														
-														
-														
 										       }
 														
 											
@@ -112,7 +114,6 @@ public class Aplicação {
 										
 										 
 									}
-						      
 						}
 						}
 			    	}
@@ -126,9 +127,6 @@ public class Aplicação {
 					
 		} break;
 
-			
-				
-
 			case 2:
 				String nome1 = JOptionPane.showInputDialog(null,"Nome: ");
 				String usuario1=JOptionPane.showInputDialog(null,"Usuário: ");
@@ -140,22 +138,16 @@ public class Aplicação {
 		        } else {
 		        	JOptionPane.showMessageDialog(null,"Ops! Tente novamente!");
 		        	option1 = Integer.parseInt((JOptionPane.showInputDialog(processo.menu1())));
-		
 		        }
 				
 			
 				break;
 			case 3:
+
 				break;
-			
-		
-				
-					
-			
 	}
 }
-			
-	
+				
 	}
 
 	

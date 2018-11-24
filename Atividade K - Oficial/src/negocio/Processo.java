@@ -21,7 +21,40 @@ public class Processo {
     public int idUserSelecionado = 0;
     public int posicao=0;
     
-    //METODOS DE NEGOCIO PARA GERENCIAR O USER.
+    //menus
+    public String menu1() {
+    	return     "SEJA BEM VINDO - TRELLAR \n"
+           	 + "1 - Login\n" //se clicar nessa opçao vem o formaulario de LOGIN.
+             + "2 - Cadastrar Usuario\n" //se clicar nessa opçao vem o formaulario de cadastro.
+             + "0 - Sair";
+    }
+    public String menu2() {
+    	return  "  1 -  Criar Novo Quadro\n" //se clicar nessa opçao vem o formaulario NOVO QUADRO.
+                + "2 -  Meus Quadros - Listar Quadros\n" //tela com a lista.
+                + "3 -  Selecionar Quadro\n"
+                + "4 -  Voltar";
+    }
+    public String menu3() {
+    	return "   1 - Cadastrar tarefa\n" //se clicar nessa opçao vem o formaulario NOVO cadastrar tarefa.
+    			+ "2 -  Listar tarefas\n" // listas tarefas. 
+        		+ "3 -  Selecionar tarefa\n"
+        		+ "4 -  Voltar";
+    }
+    public String menu4() {
+    	return "   1 -  Adicionar Card\n"
+                + "2 -  Listar Cards\n"      
+                + "3 -  Selecionar Cards\n"
+                + "0 -  Voltar";
+    }
+    public String menu5() {
+    	  return  "1 - Adicionar descrição ao card\n"
+                + "2 - Adicionar comentario ao cartao\n"
+                + "3 - Adicionar etiqueta ao cartao\n"
+                + "4 - Alternar cartao para outra tarefa\n"
+                + "0 - Voltar";
+    }
+
+    //METODOS DE NEGOCIO PARA GERENCIAR.
     public boolean cadastrarUser(String nome, String login, String senha){
         if (nome.trim().length() == 0 || login.trim().length() == 0 || senha.trim().length() == 0) {
             return false;
@@ -81,6 +114,10 @@ public class Processo {
         return users.get(idUserSelecionado).getQuadros();
     }
     
+    public ArrayList<Lista> getTarefasCadastradas(){
+        return users.get(idUserSelecionado).getQuadroSelecionado().getTarefas();
+    }
+    
     
     public Quadro selecionarQuadro(String titulo){
     	for(int i = 0; i < this.quadros.size();i++) {
@@ -103,13 +140,8 @@ public class Processo {
         addLog(log);
         return true;
     }
-    
-    
-    public ArrayList<Lista> getTarefasCadastradas(){
-        return users.get(idUserSelecionado).getQuadroSelecionado().getTarefas();
-    }
-    
-    
+   
+     
     public boolean selecionarTarefa(int indice){
         return users.get(idUserSelecionado).getQuadroSelecionado().alternarTarefa(indice);        
     }
@@ -184,53 +216,32 @@ public class Processo {
         Log log = new Log(descricao);
         this.logs.add(log);
     }
+    
+	public String listarQuadros(){
+		ArrayList<Quadro> quadros = getQuadrosCadastrados();
+		//String quadros = "";
+		if (quadros.isEmpty()) {
+			return "Não há quadros cadastrados!";
+		}
+		for (int i = 0; i < this.quadros.size();i++){
+				return +i+1+"º Quadro: "+  this.quadros.get(i).titulo;
+			}
+			return null; 
+	}
     public String listarTarefas(){
         ArrayList<Lista> tarefas = getTarefasCadastradas();
         if (tarefas.isEmpty()){
              return "Nenhum registro localizado!";
         }
         for (int i = 0; i < tarefas.size(); i++){
-            return i+1 + "-"+ tarefas.get(i).getTitulo();
+            return i+1 + "º Tarefa "+ tarefas.get(i).getTitulo();
         }
 		return null;
 }
     public ArrayList<Log> getLog(){
         return logs;
     }
-    public String menu1() {
-    	return     "SEJA BEM VINDO - TRELLAR \n"
-           	 + "1 - Login\n" //se clicar nessa opçao vem o formaulario de LOGIN.
-             + "2 - Cadastrar Usuario\n" //se clicar nessa opçao vem o formaulario de cadastro.
-             + "0 - Finalizar"; //sai.;
-    }
-    public String menu2() {
-    	return  "  1 -  Criar Novo Quadro\n" //se clicar nessa opçao vem o formaulario NOVO QUADRO.
-                + "2 -  Meus Quadros - Listar Quadros\n" //tela com a lista.
-                + "3 -  Selecionar Quadro\n"
-                + "0 -  Voltar";
-    }
-    public String menu3() {
-    	return "   1 - Cadastrar tarefa\n" //se clicar nessa opçao vem o formaulario NOVO cadastrar tarefa.
-    			+ "2 -  Listar tarefas\n" // listas tarefas. 
-        		+ "3 -  Selecionar tarefa\n"
-        		+ "0 -  Voltar";
-    }
-    public String menu4() {
-    	return "   1 -  Adicionar Card\n"
-                + "2 -  Listar Cards\n"      
-                + "3 -  Selecionar Cards\n"
-                + "0 -  Voltar";
-    }
-    public String menu5() {
-    	  return  "1 - Adicionar descrição ao card\n"
-                + "2 - Adicionar comentario ao cartao\n"
-                + "3 - Adicionar etiqueta ao cartao\n"
-                + "4 - Alternar cartao para outra tarefa\n"
-                + "0 - Voltar";
-    }
-
-
-
+    
 	public boolean isLogadoStatus() {
 		return logadoStatus;
 	}
@@ -238,17 +249,6 @@ public class Processo {
 
 	public boolean setLogadoStatus(boolean logadoStatus) {
 		return this.logadoStatus = logadoStatus;
-	}
-
-	public String listarQuadros(){
-		//ArrayList<Quadro> quadros = getQuadrosCadastrados();
-		String quadros = "";
-		
-			for (int i = 0; i < this.quadros.size();i++){
-				quadros= ">> "+i+1+" Quadro: "+  this.quadros.get(i).titulo;
-			}
-			return quadros; 
-		
 	}
 	
     public void logoff(){
