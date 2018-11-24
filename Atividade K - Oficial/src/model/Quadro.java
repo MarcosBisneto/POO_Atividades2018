@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Quadro {
 
-	private String titulo;
-	private ArrayList<Lista> tarefas = new ArrayList<>();
-	private int tarefaSelecionada;
+	public String titulo;
+	public ArrayList<Lista> tarefas = new ArrayList<>();
+	public int tarefaSelecionada;
 
 	public Quadro(String titulo){
 		this.titulo = titulo;

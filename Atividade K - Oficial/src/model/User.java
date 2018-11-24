@@ -6,7 +6,7 @@ public class User {
     private String nome;
     private String login;
     private String senha;
-    private ArrayList<Quadro> quadros = new ArrayList<>();
+    public ArrayList<Quadro> quadros = new ArrayList<>();
     private int quadroSelecionado = 0;
     
     public User(String nome, String login, String senha){
